@@ -17,11 +17,12 @@ export const weather = (req, res, next) => {
             }
             // console.log(location);
             // console.log(Fdata)
-            res.send({
-                forecast: Fdata,
-                location,
-                address: req.query.address
-            })
+            res.setHeader('Access-Control-Allow-Origin', '*')
+                .send({
+                    forecast: Fdata,
+                    location,
+                    address: req.query.address
+                })
         })
     });
 
