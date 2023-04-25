@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import * as dotenv from 'dotenv'
 dotenv.config();
 
-// import cors from 'cors'
+import cors from 'cors'
 
 //import.meta.url get the current module’s file URL and pass it to the fileURLToPath function  to convert it to a file path.
 const __filename = fileURLToPath(import.meta.url);
@@ -13,8 +13,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename,);
 
 const app = express();
-
-// app.use(cors());
+app.use(cors());
+app.use(express.json());
 
 // Define paths for Express config ,
 const publicPath = path.join(__dirname, './public');
