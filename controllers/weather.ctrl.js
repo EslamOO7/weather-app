@@ -21,7 +21,7 @@ export const weather = (req, res, next) => {
             }
             // console.log(location);
             // console.log(Fdata)
-            res.setHeader('Access-Control-Allow-Origin', '*')
+            res
                 .send({
                     forecast: Fdata,
                     location,
