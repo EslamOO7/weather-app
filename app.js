@@ -3,6 +3,7 @@ import path from "path";
 import hbs from "hbs";
 import { fileURLToPath } from 'url';
 import * as dotenv from 'dotenv'
+import cors from "cors"
 dotenv.config();
 
 
@@ -13,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename,);
 
 const app = express();
-
+app.use(cors())
 app.use(express.json());
 
 // Define paths for Express config ,
