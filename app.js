@@ -16,7 +16,12 @@ const __dirname = path.dirname(__filename,);
 const app = express();
 app.use(cors({
     origin:"https://weather-app-3uwb.onrender.com/"
-}))
+}));
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 app.use(express.json());
 
 // Define paths for Express config ,
@@ -31,13 +36,6 @@ hbs.registerPartials(partialsPath)
 
 // Setup static directory 
 app.use(express.static(publicPath));
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 
 import home from "./routes/home.route.js"
